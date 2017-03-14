@@ -54,7 +54,7 @@ public class SutaPageView: UIView, UIScrollViewDelegate {
     }
     
     public convenience init() {
-        self.init(frame: CGRect.zero)
+        self.init(frame: .zero)
     }
     
     convenience public init(controllers: [UIViewController]) {
