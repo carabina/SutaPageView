@@ -33,7 +33,7 @@ public class SutaPageView: UIView, UIScrollViewDelegate {
             didSetPage(oldValue)
         }
     }
-    public weak var delegate: SutaPageViewDelegate?
+    @IBOutlet public weak var delegate: SutaPageViewDelegate?
     var scrollView: UIScrollView!
     var scrollContainerView: UIView!
     var scrollContainerViewWidthConstraint: NSLayoutConstraint?
