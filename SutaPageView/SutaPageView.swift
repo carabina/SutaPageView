@@ -47,10 +47,14 @@ public class SutaPageView: UIView, UIScrollViewDelegate {
         removeObserver()
     }
     
-    public init() {
-        super.init(frame: CGRect.zero)
+    override public init(frame: CGRect) {
+        super.init(frame: frame)
         configure()
         buildUI()
+    }
+    
+    public convenience init() {
+        self.init(frame: CGRect.zero)
     }
     
     convenience public init(controllers: [UIViewController]) {
