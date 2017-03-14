@@ -72,11 +72,19 @@
 				DCFDA6831E7786460091C7E4 /* AppDelegate.swift */,
 				DCFDA6851E7786460091C7E4 /* ViewController.swift */,
 				DCFDA6871E7786460091C7E4 /* Main.storyboard */,
+				DCFDA6991E7795700091C7E4 /* Supporting Files */,
+			);
+			path = SutaPageViewDemo;
+			sourceTree = "<group>";
+		};
+		DCFDA6991E7795700091C7E4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
 				DCFDA68A1E7786460091C7E4 /* Assets.xcassets */,
 				DCFDA68C1E7786460091C7E4 /* LaunchScreen.storyboard */,
 				DCFDA68F1E7786460091C7E4 /* Info.plist */,
 			);
-			path = SutaPageViewDemo;
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		E4320AA5B9F1F2DB0937ADC9 /* Pods */ = {
@@ -337,6 +345,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A105271A3D7F72CA85705841 /* Pods-SutaPageViewDemo.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = PP25SV745R;
 				INFOPLIST_FILE = SutaPageViewDemo/Info.plist;
@@ -352,6 +361,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BBA4FE88F6F982C3BC6E934C /* Pods-SutaPageViewDemo.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = PP25SV745R;
 				INFOPLIST_FILE = SutaPageViewDemo/Info.plist;
@@ -382,6 +392,7 @@
 				DCFDA6941E7786460091C7E4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

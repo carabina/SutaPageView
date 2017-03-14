@@ -26,7 +26,6 @@ class ViewController: UIViewController, SutaPageViewDelegate {
         pageView = SutaPageView(controllers: controllers)
         pageView.delegate = self
         view.addSubview(pageView)
-        pageView.layer.borderWidth = 3
         pageView.translatesAutoresizingMaskIntoConstraints = false
         let pageViewFirstConstraintArray = NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[pageView]-0-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["pageView" : pageView])
         let pageViewSecondConstraintArray = NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[pageView]-0-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["pageView" : pageView])
