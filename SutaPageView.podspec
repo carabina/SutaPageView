@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   s.license      = { :type => "MIT", :file => "LICENSE" }
   s.frameworks   = "Foundation", "UIKit"
-  s.source_files = "SutaPageView/*.{h,m}"
+  s.source_files = "SutaPageView/*.{swift}"
   s.compiler_flags = "-fmodules"
   s.description    = <<-DESC
   SutaPageView is a paging view..

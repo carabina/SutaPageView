@@ -1,0 +1,389 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1253191160E761580FBB4DEF /* Pods_SutaPageViewDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBEF4AC6D43A532CE0B569D9 /* Pods_SutaPageViewDemo.framework */; };
+		DCFDA6841E7786460091C7E4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFDA6831E7786460091C7E4 /* AppDelegate.swift */; };
+		DCFDA6861E7786460091C7E4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFDA6851E7786460091C7E4 /* ViewController.swift */; };
+		DCFDA6891E7786460091C7E4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCFDA6871E7786460091C7E4 /* Main.storyboard */; };
+		DCFDA68B1E7786460091C7E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCFDA68A1E7786460091C7E4 /* Assets.xcassets */; };
+		DCFDA68E1E7786460091C7E4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCFDA68C1E7786460091C7E4 /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A105271A3D7F72CA85705841 /* Pods-SutaPageViewDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SutaPageViewDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SutaPageViewDemo/Pods-SutaPageViewDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		BBA4FE88F6F982C3BC6E934C /* Pods-SutaPageViewDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SutaPageViewDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-SutaPageViewDemo/Pods-SutaPageViewDemo.release.xcconfig"; sourceTree = "<group>"; };
+		DCFDA6801E7786460091C7E4 /* SutaPageViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SutaPageViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DCFDA6831E7786460091C7E4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DCFDA6851E7786460091C7E4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DCFDA68A1E7786460091C7E4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DCFDA68F1E7786460091C7E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DCFDA6971E77866E0091C7E4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "zh-Hans"; path = "zh-Hans.lproj/Main.storyboard"; sourceTree = "<group>"; };
+		DCFDA6981E7786740091C7E4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.storyboard"; sourceTree = "<group>"; };
+		EBEF4AC6D43A532CE0B569D9 /* Pods_SutaPageViewDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SutaPageViewDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DCFDA67D1E7786460091C7E4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1253191160E761580FBB4DEF /* Pods_SutaPageViewDemo.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3EEC1F37E354839FCC1A9A3B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EBEF4AC6D43A532CE0B569D9 /* Pods_SutaPageViewDemo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DCFDA6771E7786450091C7E4 = {
+			isa = PBXGroup;
+			children = (
+				DCFDA6821E7786460091C7E4 /* SutaPageViewDemo */,
+				DCFDA6811E7786460091C7E4 /* Products */,
+				E4320AA5B9F1F2DB0937ADC9 /* Pods */,
+				3EEC1F37E354839FCC1A9A3B /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		DCFDA6811E7786460091C7E4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DCFDA6801E7786460091C7E4 /* SutaPageViewDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DCFDA6821E7786460091C7E4 /* SutaPageViewDemo */ = {
+			isa = PBXGroup;
+			children = (
+				DCFDA6831E7786460091C7E4 /* AppDelegate.swift */,
+				DCFDA6851E7786460091C7E4 /* ViewController.swift */,
+				DCFDA6871E7786460091C7E4 /* Main.storyboard */,
+				DCFDA68A1E7786460091C7E4 /* Assets.xcassets */,
+				DCFDA68C1E7786460091C7E4 /* LaunchScreen.storyboard */,
+				DCFDA68F1E7786460091C7E4 /* Info.plist */,
+			);
+			path = SutaPageViewDemo;
+			sourceTree = "<group>";
+		};
+		E4320AA5B9F1F2DB0937ADC9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A105271A3D7F72CA85705841 /* Pods-SutaPageViewDemo.debug.xcconfig */,
+				BBA4FE88F6F982C3BC6E934C /* Pods-SutaPageViewDemo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DCFDA67F1E7786460091C7E4 /* SutaPageViewDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DCFDA6921E7786460091C7E4 /* Build configuration list for PBXNativeTarget "SutaPageViewDemo" */;
+			buildPhases = (
+				890C36DDDC06D71B8489D310 /* [CP] Check Pods Manifest.lock */,
+				DCFDA67C1E7786460091C7E4 /* Sources */,
+				DCFDA67D1E7786460091C7E4 /* Frameworks */,
+				DCFDA67E1E7786460091C7E4 /* Resources */,
+				70508B91862662164BCD7C44 /* [CP] Embed Pods Frameworks */,
+				C1424310EDC6FCE1CF626AD3 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SutaPageViewDemo;
+			productName = SutaPageViewDemo;
+			productReference = DCFDA6801E7786460091C7E4 /* SutaPageViewDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DCFDA6781E7786450091C7E4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = Suta;
+				TargetAttributes = {
+					DCFDA67F1E7786460091C7E4 = {
+						CreatedOnToolsVersion = 8.2;
+						DevelopmentTeam = PP25SV745R;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = DCFDA67B1E7786450091C7E4 /* Build configuration list for PBXProject "SutaPageViewDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+			);
+			mainGroup = DCFDA6771E7786450091C7E4;
+			productRefGroup = DCFDA6811E7786460091C7E4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DCFDA67F1E7786460091C7E4 /* SutaPageViewDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DCFDA67E1E7786460091C7E4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DCFDA68E1E7786460091C7E4 /* LaunchScreen.storyboard in Resources */,
+				DCFDA68B1E7786460091C7E4 /* Assets.xcassets in Resources */,
+				DCFDA6891E7786460091C7E4 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		70508B91862662164BCD7C44 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SutaPageViewDemo/Pods-SutaPageViewDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		890C36DDDC06D71B8489D310 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C1424310EDC6FCE1CF626AD3 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SutaPageViewDemo/Pods-SutaPageViewDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DCFDA67C1E7786460091C7E4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DCFDA6861E7786460091C7E4 /* ViewController.swift in Sources */,
+				DCFDA6841E7786460091C7E4 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		DCFDA6871E7786460091C7E4 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DCFDA6971E77866E0091C7E4 /* zh-Hans */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		DCFDA68C1E7786460091C7E4 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DCFDA6981E7786740091C7E4 /* zh-Hans */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DCFDA6901E7786460091C7E4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DCFDA6911E7786460091C7E4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DCFDA6931E7786460091C7E4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A105271A3D7F72CA85705841 /* Pods-SutaPageViewDemo.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = PP25SV745R;
+				INFOPLIST_FILE = SutaPageViewDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.suta.SutaPageViewDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		DCFDA6941E7786460091C7E4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BBA4FE88F6F982C3BC6E934C /* Pods-SutaPageViewDemo.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = PP25SV745R;
+				INFOPLIST_FILE = SutaPageViewDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.suta.SutaPageViewDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DCFDA67B1E7786450091C7E4 /* Build configuration list for PBXProject "SutaPageViewDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DCFDA6901E7786460091C7E4 /* Debug */,
+				DCFDA6911E7786460091C7E4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DCFDA6921E7786460091C7E4 /* Build configuration list for PBXNativeTarget "SutaPageViewDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DCFDA6931E7786460091C7E4 /* Debug */,
+				DCFDA6941E7786460091C7E4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DCFDA6781E7786450091C7E4 /* Project object */;
+}

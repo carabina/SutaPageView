@@ -15,14 +15,11 @@ import UIKit
 
 public class SutaPageView: UIView, UIScrollViewDelegate {
     
-    var scrollView: UIScrollView!
-    var scrollContainerView: UIView!
     public private(set) var controllers = [UIViewController]() {
         didSet {
             didSetControllers(oldValue)
         }
     }
-    var scrollContainerViewWidthConstraint: NSLayoutConstraint?
     public var page = 0 {
         didSet {
             guard page >= 0 && page < controllers.count else {
@@ -33,12 +30,16 @@ public class SutaPageView: UIView, UIScrollViewDelegate {
                 page = oldValue
                 return
             }
-            didSetPage()
+            didSetPage(oldValue)
         }
     }
+    public weak var delegate: SutaPageViewDelegate?
+    var scrollView: UIScrollView!
+    var scrollContainerView: UIView!
+    var scrollContainerViewWidthConstraint: NSLayoutConstraint?
     var setPageBySelf = false
     var shouldResetPage = false
-    public weak var delegate: SutaPageViewDelegate?
+    var currentPage = 0
     
     // MARK: -
     
@@ -54,9 +55,9 @@ public class SutaPageView: UIView, UIScrollViewDelegate {
     
     convenience public init(controllers: [UIViewController]) {
         self.init()
-        configure()
-        buildUI()
-        self.controllers = controllers
+        defer {
+            self.controllers = controllers
+        }
     }
     
     required public init?(coder aDecoder: NSCoder) {
@@ -72,6 +73,7 @@ public class SutaPageView: UIView, UIScrollViewDelegate {
                 myController.automaticallyAdjustsScrollViewInsets = false
             }
         }
+        setupControllers()
         if shouldResetPage {
             shouldResetPage = false
             page = Int(page)
@@ -104,6 +106,10 @@ public class SutaPageView: UIView, UIScrollViewDelegate {
     }
     
     func buildUI() {
+        
+        guard scrollContainerViewWidthConstraint == nil else {
+            return
+        }
         
         scrollView = UIScrollView()
         scrollView.showsHorizontalScrollIndicator = false
@@ -149,6 +155,35 @@ public class SutaPageView: UIView, UIScrollViewDelegate {
         return controller
     }
     
+    func setupControllers() {
+        guard controllers.count > 0 && scrollContainerView.subviews.count == 0 else {
+            return
+        }
+        if let myController = myController() {
+            for (index, controller) in controllers.enumerated() {
+                myController.addChildViewController(controller)
+                scrollContainerView.addSubview(controller.view)
+                controller.view.translatesAutoresizingMaskIntoConstraints = false
+                let controllerViewFirstConstraint = NSLayoutConstraint(item: controller.view, attribute: .top, relatedBy: .equal, toItem: controller.view.superview, attribute: .top, multiplier: 1, constant: 0)
+                let controllerViewSecondConstraint = NSLayoutConstraint(item: controller.view, attribute: .bottom, relatedBy: .equal, toItem: controller.view.superview, attribute: .bottom, multiplier: 1, constant: 0)
+                let controllerViewThirdConstraint = NSLayoutConstraint(item: controller.view, attribute: .width, relatedBy: .equal, toItem: controller.view.superview, attribute: .width, multiplier: 1 / CGFloat(controllers.count > 0 ? controllers.count : 1), constant: 0)
+                var controllerViewFourthConstraint: NSLayoutConstraint?
+                if index == 0 {
+                    controllerViewFourthConstraint = NSLayoutConstraint(item: controller.view, attribute: .leading, relatedBy: .equal, toItem: controller.view.superview, attribute: .leading, multiplier: 1, constant: 0)
+                } else {
+                    let previousController = controllers[index - 1]
+                    controllerViewFourthConstraint = NSLayoutConstraint(item: controller.view, attribute: .leading, relatedBy: .equal, toItem: previousController.view, attribute: .trailing, multiplier: 1, constant: 0)
+                }
+                scrollContainerView.addConstraint(controllerViewFirstConstraint)
+                scrollContainerView.addConstraint(controllerViewSecondConstraint)
+                scrollContainerView.addConstraint(controllerViewThirdConstraint)
+                if let constaint = controllerViewFourthConstraint {
+                    scrollContainerView.addConstraint(constaint)
+                }
+            }
+        }
+    }
+    
     // MARK: - Observe
     
     func addObserver() {
@@ -180,56 +215,41 @@ public class SutaPageView: UIView, UIScrollViewDelegate {
             scrollView.removeConstraint(scrollContainerViewWidthConstraint!)
         }
         
-        let controllersCount = controllers.count > 0 ? controllers.count : 1
-        
-        scrollContainerViewWidthConstraint = NSLayoutConstraint(item: scrollContainerView, attribute: .width, relatedBy: .equal, toItem: scrollView, attribute: .width, multiplier: CGFloat(controllersCount), constant: 0)
+        scrollContainerViewWidthConstraint = NSLayoutConstraint(item: scrollContainerView, attribute: .width, relatedBy: .equal, toItem: scrollView, attribute: .width, multiplier: CGFloat(controllers.count > 0 ? controllers.count : 1), constant: 0)
         scrollView.addConstraint(scrollContainerViewWidthConstraint!)
         
-        if let myController = myController() {
-            for (index, controller) in controllers.enumerated() {
-                myController.addChildViewController(controller)
-                scrollContainerView.addSubview(controller.view)
-                controller.view.translatesAutoresizingMaskIntoConstraints = false
-                let controllerViewFirstConstraint = NSLayoutConstraint(item: controller.view, attribute: .top, relatedBy: .equal, toItem: controller.view.superview, attribute: .top, multiplier: 1, constant: 0)
-                let controllerViewSecondConstraint = NSLayoutConstraint(item: controller.view, attribute: .bottom, relatedBy: .equal, toItem: controller.view.superview, attribute: .bottom, multiplier: 1, constant: 0)
-                let controllerViewThirdConstraint = NSLayoutConstraint(item: controller.view, attribute: .width, relatedBy: .equal, toItem: controller.view.superview, attribute: .width, multiplier: 1 / CGFloat(controllersCount), constant: 0)
-                var controllerViewFourthConstraint: NSLayoutConstraint?
-                if index == 0 {
-                    controllerViewFourthConstraint = NSLayoutConstraint(item: controller.view, attribute: .leading, relatedBy: .equal, toItem: controller.view.superview, attribute: .leading, multiplier: 1, constant: 0)
-                } else {
-                    let previousController = controllers[index - 1]
-                    controllerViewFourthConstraint = NSLayoutConstraint(item: controller.view, attribute: .leading, relatedBy: .equal, toItem: previousController.view, attribute: .trailing, multiplier: 1, constant: 0)
-                }
-                scrollContainerView.addConstraint(controllerViewFirstConstraint)
-                scrollContainerView.addConstraint(controllerViewSecondConstraint)
-                scrollContainerView.addConstraint(controllerViewThirdConstraint)
-                if let constaint = controllerViewFourthConstraint {
-                    scrollContainerView.addConstraint(constaint)
-                }
-            }
-        }
+        setupControllers()
         
     }
     
-    func didSetPage() {
+    func didSetPage(_ oldValue: Int) {
         if (setPageBySelf) {
             setPageBySelf = false
         } else {
             setPage(page)
         }
+        if (page != oldValue) {
+            delegate?.pageView?(self, didSelect: controllers[page])
+        }
     }
     
     // MARK: - UIScrollViewDelegate
     
+    public func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        let pageWidth = scrollView.frame.width + 10
+        currentPage = Int(floor(Double((scrollView.contentOffset.x - pageWidth / 2) / pageWidth))) + 1
+    }
+    
     public func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         
-        let pageWidth = scrollView.frame.width
+        let pageWidth = scrollView.frame.width + 10
         var newPage: Int = 0
         if velocity.x == 0 {
             newPage = Int(floor((Double(targetContentOffset.pointee.x) - Double(pageWidth) / 2) / Double(pageWidth))) + 1
         } else {
-            newPage = velocity.x > 0 ? page + 1 : page - 1
+            newPage = velocity.x > 0 ? currentPage + 1 : currentPage - 1
             newPage = max(0, newPage)
+            newPage = min(controllers.count - 1, newPage)
             if CGFloat(newPage) > scrollView.contentSize.width / pageWidth {
                 newPage = (Int)(ceil(Double(scrollView.contentSize.width / pageWidth)) - 1)
             }
