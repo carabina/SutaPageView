@@ -345,7 +345,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A105271A3D7F72CA85705841 /* Pods-SutaPageViewDemo.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = PP25SV745R;
 				INFOPLIST_FILE = SutaPageViewDemo/Info.plist;
@@ -361,7 +361,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BBA4FE88F6F982C3BC6E934C /* Pods-SutaPageViewDemo.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = PP25SV745R;
 				INFOPLIST_FILE = SutaPageViewDemo/Info.plist;
