@@ -160,7 +160,7 @@ public class SutaPageView: UIView, UIScrollViewDelegate {
     }
     
     func setupControllers() {
-        guard controllers.count > 0 && scrollContainerView.subviews.count == 0 else {
+        guard !controllers.isEmpty && scrollContainerView.subviews.count == 0 else {
             return
         }
         if let myController = myController() {
@@ -170,7 +170,7 @@ public class SutaPageView: UIView, UIScrollViewDelegate {
                 controller.view.translatesAutoresizingMaskIntoConstraints = false
                 let controllerViewFirstConstraint = NSLayoutConstraint(item: controller.view, attribute: .top, relatedBy: .equal, toItem: controller.view.superview, attribute: .top, multiplier: 1, constant: 0)
                 let controllerViewSecondConstraint = NSLayoutConstraint(item: controller.view, attribute: .bottom, relatedBy: .equal, toItem: controller.view.superview, attribute: .bottom, multiplier: 1, constant: 0)
-                let controllerViewThirdConstraint = NSLayoutConstraint(item: controller.view, attribute: .width, relatedBy: .equal, toItem: controller.view.superview, attribute: .width, multiplier: 1 / CGFloat(controllers.count > 0 ? controllers.count : 1), constant: 0)
+                let controllerViewThirdConstraint = NSLayoutConstraint(item: controller.view, attribute: .width, relatedBy: .equal, toItem: controller.view.superview, attribute: .width, multiplier: 1 / CGFloat(controllers.isEmpty ? 1 : controllers.count), constant: 0)
                 var controllerViewFourthConstraint: NSLayoutConstraint?
                 if index == 0 {
                     controllerViewFourthConstraint = NSLayoutConstraint(item: controller.view, attribute: .leading, relatedBy: .equal, toItem: controller.view.superview, attribute: .leading, multiplier: 1, constant: 0)
@@ -219,7 +219,7 @@ public class SutaPageView: UIView, UIScrollViewDelegate {
             scrollView.removeConstraint(scrollContainerViewWidthConstraint!)
         }
         
-        scrollContainerViewWidthConstraint = NSLayoutConstraint(item: scrollContainerView, attribute: .width, relatedBy: .equal, toItem: scrollView, attribute: .width, multiplier: CGFloat(controllers.count > 0 ? controllers.count : 1), constant: 0)
+        scrollContainerViewWidthConstraint = NSLayoutConstraint(item: scrollContainerView, attribute: .width, relatedBy: .equal, toItem: scrollView, attribute: .width, multiplier: CGFloat(controllers.isEmpty ? 1 : controllers.count), constant: 0)
         scrollView.addConstraint(scrollContainerViewWidthConstraint!)
         
         setupControllers()
