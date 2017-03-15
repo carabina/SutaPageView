@@ -31,6 +31,14 @@ class ViewController: UIViewController, SutaPageViewDelegate {
         let pageViewSecondConstraintArray = NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[pageView]-0-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["pageView" : pageView])
         view.addConstraints(pageViewFirstConstraintArray)
         view.addConstraints(pageViewSecondConstraintArray)
+        
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            let controller = UIViewController()
+            controller.view.backgroundColor = UIColor(red: CGFloat(arc4random() % 256) / 255, green: CGFloat(arc4random() % 256) / 255, blue: CGFloat(arc4random() % 256) / 255, alpha: 1)
+            self.pageView.insertController(controller, atIndex: 1, animated: true)
+        }
+        
     }
     
     // MARK: - SutaPageViewDelegate
