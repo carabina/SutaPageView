@@ -37,7 +37,7 @@ public class SutaPageView: UIView, UIScrollViewDelegate {
     var scrollView: UIScrollView!
     var scrollContainerView: UIView!
     var setPageBySelf = false
-    var shouldResetPage = false
+    var shouldResetPage = true
     var currentPage = 0
     var buildedUI = false
     
@@ -103,11 +103,10 @@ public class SutaPageView: UIView, UIScrollViewDelegate {
         self.controllers = controllers
     }
     
-    public func insertController(_ controller: UIViewController, atIndex index: Int, animated: Bool = false) {
-        guard index >= 0 && index < controllers.count else {
+    public func insertController(_ controller: UIViewController, atIndex index: Int) {
+        guard index >= 0 && index <= controllers.count else {
             return
         }
-        
         controllers.insert(controller, at: index)
         updateScrollContainerViewWidthConstraint()
         if let myController = myController() {
@@ -132,7 +131,6 @@ public class SutaPageView: UIView, UIScrollViewDelegate {
                 scrollContainerView.addConstraint(constaint)
             }
         }
-        
         for i in index + 1 ..< controllers.count {
             let theController = controllers[i]
             var widthConstraint: NSLayoutConstraint?
@@ -169,16 +167,58 @@ public class SutaPageView: UIView, UIScrollViewDelegate {
             }
         }
         if page >= index {
-            setPage(page + 1, animated: animated)
+            setPage(page + 1)
         }
     }
     
-    public func removeController(_ controller: UIViewController, animated: Bool = false) {
+    public func removeController(_ controller: UIViewController) {
         guard controllers.contains(controller) else {
             return
         }
-//        controllers.remove(at: controllers.index(of: controller)!)
-        
+        let index = controllers.index(of: controller)!
+        for i in index + 1 ..< controllers.count {
+            let theController = controllers[i]
+            var widthConstraint: NSLayoutConstraint?
+            var leadingConstraint: NSLayoutConstraint?
+            for constraint in theController.view.superview!.constraints {
+                if constraint.firstItem.isEqual(theController.view) && constraint.firstAttribute == .leading {
+                    leadingConstraint = constraint
+                    if widthConstraint != nil && leadingConstraint != nil {
+                        break
+                    }
+                } else if constraint.firstItem.isEqual(theController.view) && constraint.firstAttribute == .width {
+                    widthConstraint = constraint
+                    if widthConstraint != nil && leadingConstraint != nil {
+                        break
+                    }
+                }
+            }
+            if widthConstraint != nil {
+                theController.view.superview!.removeConstraint(widthConstraint!)
+                widthConstraint = NSLayoutConstraint(item: theController.view, attribute: .width, relatedBy: .equal, toItem: theController.view.superview, attribute: .width, multiplier: 1 / CGFloat(controllers.count - 1 > 0 ? 1 : controllers.count - 1), constant: 0)
+                scrollContainerView.addConstraint(widthConstraint!)
+            }
+            if leadingConstraint != nil {
+                theController.view.superview!.removeConstraint(leadingConstraint!)
+                if i == 1 {
+                    leadingConstraint = NSLayoutConstraint(item: theController.view, attribute: .leading, relatedBy: .equal, toItem: theController.view.superview, attribute: .leading, multiplier: 1, constant: 0)
+                } else {
+                    let previousController = controllers[i - 2]
+                    leadingConstraint = NSLayoutConstraint(item: theController.view, attribute: .leading, relatedBy: .equal, toItem: previousController.view, attribute: .trailing, multiplier: 1, constant: 0)
+                }
+                if let constaint = leadingConstraint {
+                    scrollContainerView.addConstraint(constaint)
+                }
+            }
+        }
+        controller.view.removeFromSuperview()
+        controller.removeFromParentViewController()
+        controllers.remove(at: index)
+        updateScrollContainerViewWidthConstraint()
+        if page >= index && page >= controllers.count {
+            let newPage = max(page - 1, 0)
+            setPage(newPage)
+        }
     }
     
     // MARK: - Private
@@ -300,7 +340,6 @@ public class SutaPageView: UIView, UIScrollViewDelegate {
     // MARK: - getter & setter
     
     func didSetControllers(_ oldValue: [UIViewController]) {
-        
         for oldController in oldValue {
             if let oldControllerViewSuperview = oldController.view.superview {
                 if oldControllerViewSuperview.isEqual(scrollContainerView) {
@@ -309,10 +348,8 @@ public class SutaPageView: UIView, UIScrollViewDelegate {
                 }
             }
         }
-        
         updateScrollContainerViewWidthConstraint()
         setupControllers()
-        
     }
     
     func didSetPage(_ oldValue: Int) {
